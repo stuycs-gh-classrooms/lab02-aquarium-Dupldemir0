@@ -10,7 +10,10 @@ class Crab extends Animal{
   }
   
   void bounce(){
-    if((fishy + fishl/2) > height || fishy - fishl/2 < height - floorH){
+    if((fishy + fishl/2) > height && fishvy == 1){
+      fishvy *= -1;
+    }
+    if(fishy - fishl/2 < height - floorH && fishvy == -1){
       fishvy *= -1;
     }
     if((fishx + fishw/2) > width || fishx - fishw/2 < tankX){

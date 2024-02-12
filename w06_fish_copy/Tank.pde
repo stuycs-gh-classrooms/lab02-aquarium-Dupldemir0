@@ -23,7 +23,7 @@ class Tank{
   }
   
   void addAnimal(){
-    if(mouseY > height - floorH){
+    if(mouseY > height - floorH && typeFish == 1){
       for(int i = 0; i < animals.size(); i++) {
         Animal ani = animals.get(i);
         if(dist(mouseX, mouseY, ani.fishx, ani.fishy) < 20){
@@ -35,8 +35,11 @@ class Tank{
       }
       canSpawnCrab = true;
     }
-    if(mouseY < height - floorH && mouseY > tankY){
+    if(mouseY < height - floorH && mouseY > tankY && typeFish == 2){
       animals.add(new Goldfish());
+    }
+    if(typeFish == 3){
+      animals.add(new Shrimp());
     }
   }
   
