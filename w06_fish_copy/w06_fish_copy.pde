@@ -37,4 +37,7 @@ void keyPressed(){
   if(key == '3'){
     typeFish = 3;
   }
+  if(key == '4'){
+    typeFish = 4;
+  }
 }

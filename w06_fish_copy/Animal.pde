@@ -3,8 +3,8 @@ class Animal{
   int fishy;
   int fishw;
   int fishl;
-  int fishvx;
-  int fishvy;
+  float fishvx;
+  float fishvy;
   
   Animal(int x, int y, int w, int h){
     fishx = x;

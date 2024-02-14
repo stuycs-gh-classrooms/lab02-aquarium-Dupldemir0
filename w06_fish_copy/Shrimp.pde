@@ -1,5 +1,6 @@
 class Shrimp extends Animal { 
-  Shrimp() {
+  
+  Shrimp(){
     super(mouseX, mouseY, floorH, floorH);
     fishy = height - floorH - (floorH/20);
   }

@@ -41,6 +41,9 @@ class Tank{
     if(typeFish == 3){
       animals.add(new Shrimp());
     }
+    if(typeFish == 4){
+      animals.add(new BettaFish());
+    }
   }
   
   void moveAnimals(){
@@ -48,6 +51,7 @@ class Tank{
       Animal ani = animals.get(i);
       ani.move();
       ani.bounce();
+      
     }
   }
 }
