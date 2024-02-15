@@ -3,6 +3,7 @@ class Shrimp extends Animal {
   Shrimp(){
     super(mouseX, mouseY, floorH, floorH);
     fishy = height - floorH - (floorH/20);
+    bottom = height - floorH;
   }
 
     void display() {

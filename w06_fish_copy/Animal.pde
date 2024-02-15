@@ -5,7 +5,10 @@ class Animal{
   int fishl;
   float fishvx;
   float fishvy;
-  int health;
+  int health = 5;
+  boolean crabby;
+  boolean dead = false;
+  int bottom;
   
   Animal(int x, int y, int w, int h){
     fishx = x;
@@ -27,11 +30,38 @@ class Animal{
   }
   
   void bounce(){
+    if(dead == false){
     if((fishx + fishw/2) > width || fishx - fishw/2 < tankX){
       fishvx *= -1;
     }
     if((fishy + fishl/2) > height || fishy - fishl/2 < tankY){
       fishvy *= -1;
+    }
+    health--;
+  }
+  }
+  
+  void death(){
+    if(frameCount % 60 == 0){
+      health--;
+    }  
+    if(health <= 0){
+      dead = true;
+    }
+    if(dead){
+      textAlign(CENTER, CENTER);
+      textSize(20);
+      fill(0);
+      text("X_X", fishx, fishy);
+    }
+    if(dead){
+      fishvx = 0;
+      if(fishy != bottom && fishvy != 0){
+        fishvy = 1;
+      }
+      else{
+        fishvy = 0;
+      }
     }
   }
 }

@@ -41,7 +41,7 @@ class Tank{
     if(typeFish == 3){
       animals.add(new Shrimp());
     }
-    if(typeFish == 4){
+    if(mouseY < height - floorH && mouseY > tankY && typeFish == 4){
       animals.add(new BettaFish());
     }
   }
@@ -51,7 +51,7 @@ class Tank{
       Animal ani = animals.get(i);
       ani.move();
       ani.bounce();
-      
+      ani.death();
     }
   }
 }

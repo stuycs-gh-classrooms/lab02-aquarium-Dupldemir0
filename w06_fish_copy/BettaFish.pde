@@ -3,10 +3,11 @@ class BettaFish extends Animal {
   int cooldown;
   int dartCount;
   
-  BettaFish() {
+  BettaFish(){
     super(mouseX, mouseY, tankW, tankH);
     fishw = tankW/10;
     fishl = tankW/10;
+    bottom = height - floorH;
   }
   
   void display(){
@@ -24,7 +25,7 @@ class BettaFish extends Animal {
   }
   
   void startDart(){
-    if(isDarting == false && random(2) < 0.1 && cooldown <= 0) {
+    if(isDarting == false && random(2) < 0.08 && cooldown <= 0) {
       isDarting = true;
     }
     if(isDarting){
@@ -36,18 +37,23 @@ class BettaFish extends Animal {
   }
   
   void bounce(){
+    if(dead == false){
     if((fishx + fishw) > width && fishvx > 0){
       fishvx *= -1;
+      health--;
     }
     if(fishx < tankX && fishvx < 0){
       fishvx *= -1;
+      health--;
     }
     if((fishy + fishl) > height - floorH && fishvy > 0){
       fishvy *= -1;
+      health--;
     }
     if(fishy < tankY && fishvy < 0){
       fishvy *= -1;
+      health--;
     }
   }
-  
+  }
 }
