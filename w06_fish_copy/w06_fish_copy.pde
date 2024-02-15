@@ -21,6 +21,12 @@ void draw() {
   background(150);
   t.moveAnimals();
   t.display();
+  fill(0);
+  textSize(20);
+  textAlign(LEFT, TOP);
+  text("Press 1 for Crabs, Press 2 for Goldfish, \nPress 3 for Shrimp, Press 4 for Betta Fish.", 0, 5);
+  textAlign(RIGHT, TOP);
+  text("Number Selected: " + typeFish, width, 5);
 }
 
 void mouseClicked() {

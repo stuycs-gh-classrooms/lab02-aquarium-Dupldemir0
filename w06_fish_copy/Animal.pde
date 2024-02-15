@@ -5,6 +5,7 @@ class Animal{
   int fishl;
   float fishvx;
   float fishvy;
+  int health;
   
   Animal(int x, int y, int w, int h){
     fishx = x;

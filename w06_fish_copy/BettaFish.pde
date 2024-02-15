@@ -11,14 +11,13 @@ class BettaFish extends Animal {
   
   void display(){
     startDart();
-    if(isDarting){
-      fill(255, 0, 0); 
-      square(fishx, fishy, fishw);
-    } 
-    else{
+    if(cooldown < 4){
       fill(25, 150, 255);
-      square(fishx, fishy, fishw);
     }
+    else{
+      fill(255, 0, 0);
+    }
+    square(fishx, fishy, fishw);
     if(frameCount % 60 == 0){
       cooldown--;
     }
@@ -33,8 +32,6 @@ class BettaFish extends Animal {
       fishvy = random(1, 4) * int(pow(-1, int(random(2))));
       isDarting = false;
       cooldown = int(random(5, 10));
-      fill(255, 0, 0); 
-      square(fishx, fishy, fishw);
     }
   }
   
