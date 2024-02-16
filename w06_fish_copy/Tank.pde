@@ -8,6 +8,7 @@ class Tank{
     tankH = h;
     floorH = fh;
     animals = new ArrayList<Animal>();
+    food = new ArrayList<FishFood>();
   }
   
   void display(){
@@ -19,6 +20,10 @@ class Tank{
     for (int i = 0; i < animals.size(); i++) {
       Animal ani = animals.get(i);
       ani.display();
+    }
+    for (int i = 0; i < food.size(); i++) {
+      FishFood fo = food.get(i);
+      fo.display();
     }
   }
   
@@ -52,6 +57,7 @@ class Tank{
       ani.move();
       ani.bounce();
       ani.death();
+      ani.eat();
     }
   }
 }

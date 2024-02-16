@@ -8,6 +8,9 @@ class Crab extends Animal{
   
   void display(){
     fill(255, 0, 0);
+    if(dead){
+      fill(0);
+    }
     ellipse(fishx, fishy, fishw, fishl);
   }
   

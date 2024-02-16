@@ -7,7 +7,7 @@ class BettaFish extends Animal {
     super(mouseX, mouseY, tankW, tankH);
     fishw = tankW/10;
     fishl = tankW/10;
-    bottom = height - floorH;
+    bottom = height - floorH - fishl;
   }
   
   void display(){
@@ -18,6 +18,9 @@ class BettaFish extends Animal {
     else{
       fill(255, 0, 0);
     }
+    if(dead){
+      fill(0);
+    }
     square(fishx, fishy, fishw);
     if(frameCount % 60 == 0){
       cooldown--;
@@ -25,6 +28,7 @@ class BettaFish extends Animal {
   }
   
   void startDart(){
+    if(!dead){
     if(isDarting == false && random(2) < 0.08 && cooldown <= 0) {
       isDarting = true;
     }
@@ -34,6 +38,7 @@ class BettaFish extends Animal {
       isDarting = false;
       cooldown = int(random(5, 10));
     }
+  }
   }
   
   void bounce(){
@@ -55,5 +60,18 @@ class BettaFish extends Animal {
       health--;
     }
   }
+  }
+  
+  void eat(){
+    for(int i = 0; i < food.size(); i++) {
+      FishFood fo = food.get(i);
+      if(dist(this.fishx + fishw/2, this.fishy + fishl/2, fo.x, fo.y) < fishl/2 && !dead){
+        fo.eaten = true;
+        health += 60;
+      }
+      if(fo.eaten){
+        food.remove(i);
+      }
+    }
   }
 }

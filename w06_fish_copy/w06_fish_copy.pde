@@ -5,6 +5,7 @@ int floorH = 100;
 int tankW;
 int tankH;
 ArrayList<Animal> animals;
+ArrayList<FishFood> food;
 int typeFish;
 
 
@@ -29,21 +30,25 @@ void draw() {
   text("Number Selected: " + typeFish, width, 5);
 }
 
-void mouseClicked() {
-  t.addAnimal();
+void mousePressed(){
+  food.add(new FishFood());
 }
 
 void keyPressed(){
   if(key == '1'){
     typeFish = 1;
+    t.addAnimal();
   }
   if(key == '2'){
     typeFish = 2;
+    t.addAnimal();
   }
   if(key == '3'){
     typeFish = 3;
+    t.addAnimal();
   }
   if(key == '4'){
     typeFish = 4;
+    t.addAnimal();
   }
 }

@@ -5,7 +5,7 @@ class Animal{
   int fishl;
   float fishvx;
   float fishvy;
-  int health = 5;
+  int health = 60;
   boolean crabby;
   boolean dead = false;
   int bottom;
@@ -20,7 +20,6 @@ class Animal{
   }
   
   void display(){
-    fill(255, 0, 255);
     rect(fishx, fishy, fishw, fishl);
   }
   
@@ -29,15 +28,29 @@ class Animal{
     fishy += fishvy; 
   }
   
+  void eat(){
+    for(int i = 0; i < food.size(); i++) {
+      FishFood fo = food.get(i);
+      if(dist(this.fishx, this.fishy, fo.x, fo.y) < fishl && !dead){
+        fo.eaten = true;
+        health += 60;
+      }
+      if(fo.eaten){
+        food.remove(i);
+      }
+    }
+  }
+  
   void bounce(){
     if(dead == false){
     if((fishx + fishw/2) > width || fishx - fishw/2 < tankX){
       fishvx *= -1;
+      health--;
     }
     if((fishy + fishl/2) > height || fishy - fishl/2 < tankY){
       fishvy *= -1;
+      health--;
     }
-    health--;
   }
   }
   
@@ -49,14 +62,8 @@ class Animal{
       dead = true;
     }
     if(dead){
-      textAlign(CENTER, CENTER);
-      textSize(20);
-      fill(0);
-      text("X_X", fishx, fishy);
-    }
-    if(dead){
       fishvx = 0;
-      if(fishy != bottom && fishvy != 0){
+      if(fishy <= bottom && fishvy != 0){
         fishvy = 1;
       }
       else{
